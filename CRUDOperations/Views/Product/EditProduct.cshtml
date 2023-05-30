@@ -1,0 +1,32 @@
+﻿@model CRUDOperations.Models.Product
+
+@{
+    ViewBag.Title = "EditProduct";
+}
+<h2 style="text-align:center; background-color:brown; color:greenyellow">EditProduct</h2>
+@using (Html.BeginForm("UpdateProduct", "Product"))
+{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <div>
+        @Html.LabelFor(P => P.Productid)<br />
+        @Html.TextBoxFor(P => P.Productid, new { @readonly = "true" })
+    </div>
+
+    <div>
+        @Html.LabelFor(P => P.ProductName)<br />
+        @Html.TextBoxFor(P => P.ProductName)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.Price)<br />
+        @Html.TextBoxFor(P => P.Price)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.Brand)<br />
+        @Html.TextBoxFor(P => P.Brand)
+    </div>
+    <div>
+        <input type="submit" value="Update" name="btnSubmit" class="btn btn-danger" /><br />
+        @Html.ActionLink("Back to Product Details", "DisplayProducts")
+    </div>
+}
+

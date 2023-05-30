@@ -1,0 +1,59 @@
+﻿@model CRUDOperations.Models.Product
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProduct</title>
+    <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <style>
+        /* #Productid-error{
+            color:red;
+        }*/
+        .field-validation-error > span {
+            color: red;
+        }
+    </style>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+</head>
+<body>
+    <h2 style="text-align:center;background-color:yellowgreen;color:orangered">AddProduct</h2>
+    <div>
+        @using (Html.BeginForm("AddProduct", "Product"))
+        {
+
+            <div>
+                @Html.LabelFor(P => P.Productid)<br />
+                @Html.TextBoxFor(P => P.Productid)
+                @Html.ValidationMessageFor(P => P.Productid)
+            </div>
+            <div>
+                @Html.LabelFor(P => P.ProductName)<br />
+                @Html.TextBoxFor(P => P.ProductName)
+                @Html.ValidationMessageFor(P => P.ProductName)
+            </div>
+            <div>
+                @Html.LabelFor(P => P.Price)<br />
+                @Html.TextBoxFor(P => P.Price)
+                @Html.ValidationMessageFor(P => P.Price)
+            </div>
+            <div>
+                @Html.LabelFor(P => P.Brand)<br />
+                @Html.TextBoxFor(P => P.Brand)
+                @Html.ValidationMessageFor(P => P.Brand)
+            </div>
+            <div>
+                <input type="submit" value="Save" name="btnSave" />
+                <input type="reset" value="Reset" name="btnreset" />
+            </div>
+        }
+        @Html.ActionLink("Back to Product Details", "DisplayProducts")
+    </div>
+</body>
+</html>

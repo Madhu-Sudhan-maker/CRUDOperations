@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CRUDOperations.Models.Product>
+
+@{
+    ViewBag.Title = "DisplayProducts";
+}
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">DisplayProducts</h2>
+
+<table align="center" border="1">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(P => P.Productid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.Status)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    @foreach(var product in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(P => product.Productid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(P => product.ProductName)
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(P => product.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(P => product.Brand)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(P => product.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View","DisplayProduct", new {Productid = product.Productid })
+                        @Html.ActionLink("Edit","EditProduct", new {Productid = product.Productid})
+                        @Html.ActionLink("Delete","DeleteProduct", new {Productid = product.Productid})
+                    </td>
+                </tr>
+            }
+    <tr>
+        <td colspan="6" align="center" >
+            @Html.ActionLink("Add New Product","AddProduct")
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,37 @@
+﻿@model CRUDOperations.Models.Product
+
+@{
+    ViewBag.Title = "DisplayProduct";
+}
+
+<h2 style="background-color:gold; color:darkmagenta; text-align:center">DisplayProduct</h2>
+
+<table border="1" align="center">
+    
+    <tr>
+        <td>Product Id:</td>
+        <td>@Model.Productid</td>
+    </tr>
+    <tr>
+        <td>Product Name:</td>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <td>Brand:</td>
+        <td>@Model.Brand</td>
+    </tr>
+    <tr>
+        <td>Product Status:</td>
+        <td>@Model.Status</td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            @Html.ActionLink("Back to Produts Details","DisplayProducts")
+        </td>
+    </tr>
+</table>
+
